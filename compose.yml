@@ -1,0 +1,21 @@
+version: '4.0'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: weather_db
+    restart: always
+    ports:
+      - "3333:5432"
+    environment:
+      - POSTGRES_DB=weather_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - TZ=Asia/Almaty
+    networks:
+      - weather-network
+
+networks:
+  weather-network:
+    driver: bridge
