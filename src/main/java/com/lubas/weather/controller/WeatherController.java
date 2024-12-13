@@ -25,9 +25,9 @@ public class WeatherController {
 
     @GetMapping("/weather/forecast")
     public WeatherResponseDto getForecast(
-            @RequestParam String cityName,
+            @RequestParam int cityId,
             @RequestParam int days
     ) {
-        return weatherService.getCurrentForecast(cityName, days);
+        return weatherService.getCurrentForecast(cityId, days);
     }
 }
